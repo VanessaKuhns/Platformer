@@ -1,11 +1,12 @@
 #setup
+import tkinter
 import pygame, sys, random
 from pygame.locals import *
+from tkinter import *
 pygame.init()
 x = 1000
 y = 600
 window = pygame.display.set_mode((x,y))
-mousepos = pygame.mouse.get_pos()
 
 
 #background setup
@@ -24,8 +25,6 @@ rect1flip = button1flip.get_rect()
 rect1flip = rect1flip.move((x/4, y-450))
 fontobj = pygame.font.SysFont('impact', 32)
 lvlselect = fontobj.render('Select Level', True, (0,0,0), None)
-
-
 
 
 while True:
