@@ -4,6 +4,8 @@ from pygame.locals import *
 pygame.init()
 from tkinter import *
 from spritesheet import Spritesheet
+import os
+os.chdir('testcode')
 
 pygame.init()
 x = 1000

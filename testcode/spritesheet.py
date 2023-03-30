@@ -1,5 +1,7 @@
 import pygame
 import json
+import os
+os.chdir('testcode')
 
 class Spritesheet:
     def __init__(self, filename):
