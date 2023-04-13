@@ -5,7 +5,7 @@ pygame.init()
 from tkinter import *
 from spritesheet import Spritesheet
 import os
-os.chdir('testcode')
+#os.chdir('testcode')
 
 pygame.init()
 x = 1000
@@ -40,6 +40,7 @@ walkRight= [pygame.transform.scale(my_spritesheet.get_sprite(21,205,22,49),(56,1
             pygame.transform.scale(my_spritesheet.get_sprite(337,718,27,48),(70,125)),pygame.transform.scale(my_spritesheet.get_sprite(402,717,25,49),(64,125)),
             pygame.transform.scale(my_spritesheet.get_sprite(468,717,23,49),(59,125)),pygame.transform.scale(my_spritesheet.get_sprite(533,717,22,49),(56,125))]
 jumpsprite=pygame.transform.scale(my_spritesheet.get_sprite(208,140,32,50),(80,125))
+slimeLeft=[pygame]
 #leftJump=[pygame.transform.scale(my_spritesheet.get_sprite(),pygame.transform.scale(my_spritesheet.get_sprite(),pygame.transform.scale(my_spritesheet.get_sprite(),pygame.transform.scale(my_spritesheet.get_sprite()]
 def redraw():
     global steps
