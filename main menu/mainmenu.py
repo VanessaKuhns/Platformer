@@ -5,7 +5,7 @@ from PyQt5 import QtGui
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import (QMenuBar, QStatusBar, QApplication, QMainWindow, QPushButton, QToolTip, QMessageBox, QLabel, QVBoxLayout, QWidget)
+from PyQt5.QtWidgets import (QMenuBar, QStatusBar,QDialogButtonBox, QDialog, QApplication, QMainWindow, QPushButton, QToolTip, QMessageBox, QLabel, QVBoxLayout, QWidget)
 import site
 site.getsitepackages()
 
@@ -15,14 +15,6 @@ from pygame.locals import *
 from tkinter import *
 import os
 os.chdir('main menu')
-# button4 = pygame.image.load('buttongradient.png')
-# button4flip = pygame.image.load('buttongradient.png')
-# button4flip = pygame.transform.flip(button4flip, True, False)
-# rect4 = button4.get_rect()
-# rect4 = rect4.move((x/4, y-400))
-# rect4flip = button4flip.get_rect()
-# rect4flip = rect4flip.move((x/4, y-400))
-# lvlselect = fontobj.render('Select Character', True, (0,0,0), None)
 
 from random import randint
 
@@ -109,7 +101,8 @@ rect6flip = button6flip.get_rect()
 rect6flip = rect6flip.move((x-590, y-80))
 creditsshow = fontobj.render('Credits', True, (0,0,0), None)
 
-#loadgame = fontobj.render('Load Game', True, (0,0,0), None)
+
+        
 
 
 while True:
