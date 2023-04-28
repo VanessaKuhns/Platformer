@@ -14,7 +14,7 @@ import pygame, sys, random
 from pygame.locals import *
 from tkinter import *
 import os
-os.chdir('main menu')
+os.chdir('mainmenufolder')
 
 from random import randint
 
