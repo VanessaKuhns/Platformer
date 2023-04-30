@@ -2,7 +2,7 @@
 import sys
 import PyQt5
 from PyQt5 import QtGui, QtCore, QtWidgets
-from PyQt5.QtGui import QIcon, QPixmap, QFont, QImage
+from PyQt5.QtGui import QIcon, QPixmap, QFont, QImage, QPalette, QColor
 from PyQt5.QtCore import QIODevice, QProcess, Qt, QSize
 from PyQt5.QtWidgets import (QPlainTextEdit, QMenuBar, QStatusBar, QDialogButtonBox, QDialog, QApplication, QMainWindow, QPushButton, QToolTip, QMessageBox, QLabel, QVBoxLayout, QWidget)
 import site
@@ -23,17 +23,17 @@ class CharDialog(QMainWindow):
         
         self.char1button = QtWidgets.QPushButton('', self)
         self.char1button.setGeometry(0, 0, 300, 300)
-        self.char1button.setStyleSheet("background-image: url(mainmenufolder/char1.png)")
+        self.char1button.setStyleSheet("background-image: url(mainmenufolder/MenuAssets/char1.png)")
         self.char1button.clicked.connect(self.on_char1button_clicked)
 
         self.char2button = QtWidgets.QPushButton('', self)
         self.char2button.setGeometry(300, 0, 300, 300)
-        self.char2button.setStyleSheet("background-image: url(mainmenufolder/char2.png)")
+        self.char2button.setStyleSheet("background-image: url(mainmenufolder/MenuAssets/char2.png)")
         self.char2button.clicked.connect(self.on_char2button_clicked)
 
         self.char3button = QtWidgets.QPushButton('', self)
         self.char3button.setGeometry(600, 0, 300, 300)
-        self.char3button.setStyleSheet("background-image: url(mainmenufolder/char3.png)")
+        self.char3button.setStyleSheet("background-image: url(mainmenufolder/MenuAssets/char3.png)")
         self.char3button.clicked.connect(self.on_char3button_clicked)
     def on_char1button_clicked(self):
         global charChoice
@@ -64,6 +64,53 @@ class testwindow(QDialog):
 class LevelWindow(QMainWindow):
     def __init__(self, parent=None):
         super(LevelWindow, self).__init__(parent)
+        self.setFixedSize(800,1200)
+        font = QFont('impact', 15)
+        
+        self.lvl1button = QtWidgets.QPushButton('Level One', self)
+        self.lvl1button.setGeometry(0,0,800,200)
+        self.lvl1button.setStyleSheet("background-image: url(mainmenufolder/levels/level_1.png)")
+        self.lvl1button.setFont(font)
+
+        self.lvl2button = QtWidgets.QPushButton('Level Two', self)
+        self.lvl2button.setGeometry(0,200,800,200)
+        self.lvl2button.setStyleSheet("background-image: url(mainmenufolder/levels/level_2.png)")
+        palette = self.lvl2button.palette()
+        palette.setColor(QPalette.ButtonText, QColor('white'))
+        self.lvl2button.setPalette(palette)
+        self.lvl2button.setFont(font)
+
+        self.lvl3button = QtWidgets.QPushButton('Level Three', self)
+        self.lvl3button.setGeometry(0,400,800,200)
+        self.lvl3button.setStyleSheet("background-image: url(mainmenufolder/levels/level_3.png)")
+        self.lvl3button.setFont(font)
+        #palette = self.lvl3button.palette()
+        palette.setColor(QPalette.ButtonText, QColor('blue'))
+        self.lvl3button.setPalette(palette)
+
+        self.lvl4button = QtWidgets.QPushButton('Level Four', self)
+        self.lvl4button.setGeometry(0,600,800,200)
+        self.lvl4button.setStyleSheet("background-image: url(mainmenufolder/levels/level_4.png)")
+        self.lvl4button.setFont(font)
+        #palette = self.lvl4button.palette()
+        palette.setColor(QPalette.ButtonText, QColor('red'))
+        self.lvl4button.setPalette(palette)
+
+        self.lvl5button = QtWidgets.QPushButton('Level Five', self)
+        self.lvl5button.setGeometry(0,800,800,200)
+        self.lvl5button.setStyleSheet("background-image: url(mainmenufolder/levels/level_5.png)")
+        self.lvl5button.setFont(font)
+        #palette = self.lvl5button.palette()
+        palette.setColor(QPalette.ButtonText, QColor('light green'))
+        self.lvl5button.setPalette(palette)
+
+        self.lvl6button = QtWidgets.QPushButton('Level Six', self)
+        self.lvl6button.setGeometry(0,1000,800,200)
+        self.lvl6button.setStyleSheet("background-image: url(mainmenufolder/levels/level_6.png)")
+        self.lvl6button.setFont(font)
+        #palette = self.lvl6button.palette()
+        palette.setColor(QPalette.ButtonText, QColor('gold'))
+        self.lvl6button.setPalette(palette)
 
 #Slime spritesheet credits window
 class SlimeCreditsWindow(QDialog):
@@ -112,7 +159,7 @@ class MainWindow(QMainWindow):
         #self.setGeometry
         self.setWindowTitle("Main Menu")
         font = QFont('impact', 25)
-        buttonimage = "background-image: url(mainmenufolder/buttongradient.png)"
+        buttonimage = "background-image: url(mainmenufolder/MenuAssets/buttongradient.png)"
         
         # button1 (New Game) setup  
         self.button1 = QtWidgets.QPushButton('New Game', self)
