@@ -19,8 +19,10 @@ import signal
 class CharDialog(QMainWindow):
     def __init__(self, parent=None):
         super(CharDialog, self).__init__(parent)
+        #setup
         self.setFixedSize(900, 300)
         
+        #display buttons
         self.char1button = QtWidgets.QPushButton('', self)
         self.char1button.setGeometry(0, 0, 300, 300)
         self.char1button.setStyleSheet("background-image: url(mainmenufolder/char1.png)")
@@ -35,6 +37,8 @@ class CharDialog(QMainWindow):
         self.char3button.setGeometry(600, 0, 300, 300)
         self.char3button.setStyleSheet("background-image: url(mainmenufolder/char3.png)")
         self.char3button.clicked.connect(self.on_char3button_clicked)
+
+    #return character value
     def on_char1button_clicked(self):
         global charChoice
         charChoice = 1
@@ -48,22 +52,13 @@ class CharDialog(QMainWindow):
         charChoice = 3
         print(charChoice)
      
-class testwindow(QDialog):
-    def __init__(self, parent=None):
-        super(testwindow, self).__init__(parent)
-        self.setFixedSize(1100,300)
-        #display slime sprite
-        self.slimecreditlabel = QtWidgets.QLabel("ha",self)
-        font = QFont('impact', 15)
-        self.slimecreditlabel.move(50,100)
-        self.slimecreditlabel.setFont(font)
-        print(charChoice)
 
 
 #level selection window
 class LevelWindow(QMainWindow):
     def __init__(self, parent=None):
         super(LevelWindow, self).__init__(parent)
+        self.setFixedSize(900, 300)
 
 #Slime spritesheet credits window
 class SlimeCreditsWindow(QDialog):
