@@ -131,6 +131,30 @@ class Char1CreditsWindow(QDialog):
         self.char1creditlabel.move(50,100)
         self.char1creditlabel.setFont(font)
         self.char1creditlabel.setTextInteractionFlags(Qt.TextSelectableByMouse)
+
+class MusicCreditsWindow(QDialog):
+    def __init__(self, parent=None):
+        super(MusicCreditsWindow, self).__init__(parent)
+
+        #window setup
+        self.setFixedSize(3000,1600)
+        self.musicCreditLabel = QtWidgets.QLabel("Prologue Song 1: Lost '98 (OMEAC Records) by Unchained Zebra\n\tURL: https://freemusicarchive.org/music/Unchained_Zebra/Netlabel_Day_2016_Promo_Compilation_2/06_Unchained_Zebra_-_Lost_98_OMEAC_Records/\n\nPrologue Song 2: Dead Skin Planets by Eaters\n\tURL: https://freemusicarchive.org/music/eaters/optimum/dead-skin-planets/", self)
+        font = QFont('impact', 11)
+        self.musicCreditLabel.move(50,100)
+        self.musicCreditLabel.setFont(font)
+        self.musicCreditLabel.setTextInteractionFlags(Qt.TextSelectableByMouse)
+
+class LevelAssetCreditsWindow(QDialog):
+    def __init__(self, parent=None):
+        super(LevelAssetCreditsWindow, self).__init__(parent)
+
+        #window setup
+        self.setFixedSize(3000,1600)
+        self.lvlAssetCreditLabel = QtWidgets.QLabel("URL: https://petricakegames.itch.io/cosmic-legacy-scifi-tileset\nURL: https://petricakegames.itch.io/sewer-blue-dungeon-tileset\nURL: https://ansimuz.itch.io/grotto-escape-game-art-pack", self)
+        font = QFont('impact', 11)
+        self.lvlAssetCreditLabel.move(50,100)
+        self.lvlAssetCreditLabel.setFont(font)
+        self.lvlAssetCreditLabel.setTextInteractionFlags(Qt.TextSelectableByMouse)
         
 #Credit Selection
 class CreditsWindow(QMainWindow):
@@ -145,9 +169,14 @@ class CreditsWindow(QMainWindow):
         self.slimespritebutton.setGeometry(0, 0, 300, 300)
         self.slimespritebutton.clicked.connect(self.on_slimespritebutton_clicked)
         self.char1credits = QtWidgets.QPushButton('Character 1 Spritesheet Credits', self)
-        self.char1credits.setGeometry(300, 0, 500, 300)
+        self.char1credits.setGeometry(300, 0, 600, 300)
         self.char1credits.clicked.connect(self.on_char1creditsbutton_clicked)
-
+        self.musicCredits = QtWidgets.QPushButton('Music Credits', self)
+        self.musicCredits.setGeometry(900, 0, 300, 300)
+        self.musicCredits.clicked.connect(self.on_musicCreditsbutton_clicked)
+        self.lvlAssetCredits = QtWidgets.QPushButton('Level Assets', self)
+        self.lvlAssetCredits.setGeometry(1200, 0, 300, 300)
+        self.lvlAssetCredits.clicked.connect(self.on_lvlAssetCreditsbutton_clicked)
     #button events
     #show slime sprite credits
     def on_slimespritebutton_clicked(self):
@@ -157,7 +186,14 @@ class CreditsWindow(QMainWindow):
     def on_char1creditsbutton_clicked(self):
         char1dialog = Char1CreditsWindow(self)
         char1dialog.show()
-
+    #show music credits
+    def on_musicCreditsbutton_clicked(self):
+        musicdialog = MusicCreditsWindow(self)
+        musicdialog.show()
+    #show level asset credits
+    def on_lvlAssetCreditsbutton_clicked(self):
+        lvlassetdialog = LevelAssetCreditsWindow(self)
+        lvlassetdialog.show()
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -245,12 +281,12 @@ class prologuePopup(QMainWindow):
         #skip button
         self.skipButton = QPushButton('Skip', self)
         self.skipButton.setFixedSize(100,100)
+        self.skipButton.move(980,0)
         self.skipButton.clicked.connect(self.videoPlayer.stop)
         self.skipButton.clicked.connect(self.close)
 
         # Play the video
         self.videoPlayer.play()
-
     #completely stop the video+sound when X button is clicked
     def closeEvent(self, event):
         self.videoPlayer.stop()
