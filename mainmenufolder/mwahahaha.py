@@ -3,7 +3,7 @@ import sys
 import PyQt5
 from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtGui import QIcon, QPixmap, QFont, QImage, QPalette, QColor, QMovie
-from PyQt5.QtCore import QIODevice, QProcess, Qt, QSize, QUrl
+from PyQt5.QtCore import QIODevice, QProcess, Qt, QSize, QUrl, QPropertyAnimation
 from PyQt5.QtWidgets import (QFrame, QHBoxLayout, QPlainTextEdit, QMenuBar, QStatusBar, QDialogButtonBox, QDialog, QApplication, QMainWindow, QPushButton, QToolTip, QMessageBox, QLabel, QVBoxLayout, QWidget)
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
@@ -163,14 +163,13 @@ class CreditsWindow(QMainWindow):
 
         #window setup
         self.setFixedSize(1500,1000)
-
         #buttons setup
         self.slimespritebutton = QtWidgets.QPushButton('Slime Sprite Credits', self)
         self.slimespritebutton.setGeometry(0, 0, 300, 300)
         self.slimespritebutton.clicked.connect(self.on_slimespritebutton_clicked)
-        self.char1credits = QtWidgets.QPushButton('Character 1 Spritesheet Credits', self)
-        self.char1credits.setGeometry(300, 0, 600, 300)
-        self.char1credits.clicked.connect(self.on_char1creditsbutton_clicked)
+        char1credits = QtWidgets.QPushButton('Character 1 Spritesheet Credits', self)
+        char1credits.setGeometry(300, 0, 600, 300)
+        char1credits.clicked.connect(self.on_char1creditsbutton_clicked)
         self.musicCredits = QtWidgets.QPushButton('Music Credits', self)
         self.musicCredits.setGeometry(900, 0, 300, 300)
         self.musicCredits.clicked.connect(self.on_musicCreditsbutton_clicked)
@@ -201,6 +200,9 @@ class MainWindow(QMainWindow):
         #window/general graphics setup
         self.setFixedSize(3000, 2000)
         self.setWindowTitle("Main Menu")
+        self.backgroundlabel = QLabel(self)
+        self.backgroundlabel.setFixedSize(3000,2000)
+        self.backgroundlabel.setStyleSheet("background-image: url(mainmenufolder/MenuAssets/gradient(3).png)")
         font = QFont('impact', 25)
         buttonimage = "background-image: url(mainmenufolder/MenuAssets/buttongradient.png)"
         
@@ -304,5 +306,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

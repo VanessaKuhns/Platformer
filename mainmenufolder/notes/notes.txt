@@ -1,0 +1,22 @@
+pyqt5-tools designer
+
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.videoplayer = QMediaPlayer(self)
+        media = QMediaContent(QUrl.fromLocalFile('mainmenufolder/Prologue.avi')) 
+        self.videoplayer.setMedia(media)
+        self.video_widget = QVideoWidget(self)
+        self.video_widget.setGeometry(0,0,1080,1080)
+        self.layout = QHBoxLayout(self)
+        self.layout.addWidget(self.video_widget)
+
+        # Set the QVideoWidget as the output for the QMediaPlayer
+        self.videoplayer.setVideoOutput(self.video_widget)
+
+        # Create a close button
+        self.close_button = QPushButton('Close', self)
+        self.close_button.clicked.connect(self.close)
+        self.layout.addWidget(self.close_button)
+
+        # Play the video
+        self.videoplayer.play()
