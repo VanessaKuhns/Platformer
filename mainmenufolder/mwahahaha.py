@@ -19,19 +19,22 @@ from tkinter import *
 import os
 import signal
 
+#spritesheet setup
 class Spritesheet:
     def __init__(self, filename):
         self.filename = filename
         self.spritesheet = pygame.image.load(filename).convert()
         self.meta_data = self.filename.replace('png', 'json')
-        with open(self.meta_data) as f:
-            self.data = json.load(f)
-        f.close()
+        with open(self.meta_data) as m:
+            self.data = json.load(m)
+        m.close()
     def get_sprite(self, x, y, w, h):
         sprite = pygame.Surface((w, h))
         sprite.set_colorkey((0, 251, 21))
         sprite.blit(self.spritesheet, (0,0), (x,y,w,h))
         return sprite
+    
+#runs pygame animation
 def runScript():
     pygame.init()
     x = 2000
@@ -55,7 +58,7 @@ def runScript():
     global airtime
     airtime = 10
     global vel
-    vel=5
+    vel=10
     global steps
     steps = 0
 
@@ -107,7 +110,7 @@ def runScript():
             px-=vel
             left=True
             right=False
-        elif keys[pygame.K_RIGHT] and px<2000-25-vel:
+        elif keys[pygame.K_RIGHT] and px<2000-50-vel:
             px+=vel
             left=False
             right=True
@@ -137,6 +140,7 @@ def runScript():
         
 
         redraw()
+
 #character selection window
 class CharDialog(QMainWindow):
     def __init__(self, parent=None):
