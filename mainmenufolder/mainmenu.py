@@ -29,8 +29,8 @@ window = pygame.display.set_mode((x,y))
 
 
 #background setup
-backg = pygame.image.load('gradient.png')
-backg = pygame.transform.scale(backg, (x, y))
+#backg = pygame.image.load('MenuAssets/gradient(3).png')
+#backg = pygame.transform.scale(backg, (x, y))
 
 
 
@@ -39,8 +39,8 @@ fontobj = pygame.font.SysFont('impact', 32)
 fontobj2 = pygame.font.SysFont('impact', 25)
 
 #button1 (New Game) setup
-button1 = pygame.image.load('buttongradient.png')
-button1flip = pygame.image.load('buttongradient.png')
+button1 = pygame.image.load('MenuAssets/buttongradient.png')
+button1flip = pygame.image.load('MenuAssets/buttongradient.png')
 button1flip = pygame.transform.flip(button1flip, True, False)
 rect1 = button1.get_rect()
 rect1 = rect1.move((x/4, y-550))
@@ -49,8 +49,8 @@ rect1flip = rect1flip.move((x/4, y-550))
 newgame = fontobj.render('New Game', True, (0,0,0), None)
 
 #character selection button
-button2 = pygame.image.load('buttongradient.png')
-button2flip = pygame.image.load('buttongradient.png')
+button2 = pygame.image.load('MenuAssets/buttongradient.png')
+button2flip = pygame.image.load('MenuAssets/buttongradient.png')
 button2flip = pygame.transform.flip(button2flip, True, False)
 rect2 = button2.get_rect()
 rect2 = rect2.move((x/4, y-430))
@@ -59,8 +59,8 @@ rect2flip = rect2flip.move((x/4, y-430))
 charselect = fontobj.render('Select Character', True, (0,0,0), None)
 
 #level selection button
-button3 = pygame.image.load('buttongradient.png')
-button3flip = pygame.image.load('buttongradient.png')
+button3 = pygame.image.load('MenuAssets/buttongradient.png')
+button3flip = pygame.image.load('MenuAssets/buttongradient.png')
 button3flip = pygame.transform.flip(button3flip, True, False)
 rect3 = button3.get_rect()
 rect3 = rect3.move((x/4, y-310))
@@ -69,8 +69,8 @@ rect3flip = rect3flip.move((x/4, y-310))
 lvlselect = fontobj.render('Select Level', True, (0,0,0), None)
 
 #load game button
-button4 = pygame.image.load('buttongradient.png')
-button4flip = pygame.image.load('buttongradient.png')
+button4 = pygame.image.load('MenuAssets/buttongradient.png')
+button4flip = pygame.image.load('MenuAssets/buttongradient.png')
 button4flip = pygame.transform.flip(button4flip, True, False)
 rect4 = button4.get_rect()
 rect4 = rect4.move((x/4, y-190))
@@ -90,8 +90,8 @@ rect5flip = button5flip.get_rect()
 rect5flip = rect5flip.move((x-100, y-100))
 
 #credits
-button6 = pygame.image.load('buttongradient.png')
-button6flip = pygame.image.load('buttongradient.png')
+button6 = pygame.image.load('MenuAssets/buttongradient.png')
+button6flip = pygame.image.load('MenuAssets/buttongradient.png')
 button6flip = pygame.transform.flip(button6flip, True, False)
 button6flip = pygame.transform.scale(button6flip, (200,60))
 button6 = pygame.transform.scale(button6, (200,60))
@@ -106,7 +106,7 @@ creditsshow = fontobj.render('Credits', True, (0,0,0), None)
 
 
 while True:
-    window.blit(backg, (0,0))
+    #window.blit(backg, (0,0))
     window.blit(button1, rect1)
     window.blit(button1flip, rect1)
     window.blit(newgame, (x-550, y-520))
